@@ -1,15 +1,19 @@
-#Plagrism finder with difflib
+#plagiarism finder with difflib
 import os
 import re
 import pandas as pd
 import numpy as np
 from difflib import SequenceMatcher
+
+
 #The only thing that is needed here is
 #the path of files in your computer
 path = "C:\\programs\\..."
 files = [code for code in os.listdir(path) if code.endswith('.c')] # you can change it for other programming softwares like *.py 
 notes =[open(File).read() for File in  files]
+
 #Removing the first two rows of files (mostly similar) for c programming
+# if the codes are not in *.c you can remode these lines
 new_notes = []
 for k in notes:
     cleaned_notes = re.sub("#include <stdio.h>" , "", k)
